@@ -11,6 +11,7 @@ And inside:
 
 ````
 sh /run.sh &
+sh /init/generic.sh
 sh /init/owncloud.sh
 exit
 ````
