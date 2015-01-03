@@ -2,6 +2,8 @@
 
 Here's how to run a postfix-forwarder, haproxy, and lamp-based web backend containers on an off-the-shelf Ubuntu server.
 
+If you are using CoreOS (or at least systemd), then you probably want to have a look at [gh:indiehosters/indiehosters](https://github.com/indiehosters/indiehosters).
+
 Note that not all servers support Docker, because of kernel modules etcetera; of the images I tried at Gandi, only the Ubuntu 12.04-64 one
 allowed me to actually run `docker ps`, and even on there, I was not able to run `docker run debian apt-get update` because from the looks
 of it, containers are not allowed to contact the outside world. In the end I got a Debian 7.6 server at Linode and an Ubuntu 14.10-64 server at vultr.com, they both work fine.
