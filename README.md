@@ -26,13 +26,13 @@ ssh-keygen -t rsa
 curl -sSL https://get.docker.com/ | sh
 
 # Install docker-enter ([recommended](https://github.com/jpetazzo/nsenter#nsenter-in-a-can)):
+# This also tests your server (there should be no 'could not resolve' errors).
 docker run --rm -v /usr/local/bin:/target jpetazzo/nsenter
 
-# In this case I also had to:
+# In this case of Debian I also had to:
 /etc/init.d/exim stop
 ````
 
-Test your server by running `docker run debian apt-get update` (there should be no 'could not resolve' errors).
 
 Then I added the .ssh/id_rsa.pub to .ssh/authorized_keys at both backup server accounts, and ran:
 
