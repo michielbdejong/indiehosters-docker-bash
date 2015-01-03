@@ -70,3 +70,7 @@ doesn't work. This means reboots are not actually safe, and also, at the time of
 lamp-git image, so be aware that this is a work in progress. :)
 
 The idea of this setup would be to eventually support the migration format in a programmatic way.
+
+# Adding domains
+
+To add a domain, choose one of the applications in this repo; each folder contains its own README.
