@@ -2,7 +2,7 @@
 
 VERSION="0.6.5"
 
-echo "Extracting Known $(VERSION}..."
+echo "Extracting Known ${VERSION}..."
 cd /data/www-content
 tar xzf /init/known-$VERSION.tgz
 
