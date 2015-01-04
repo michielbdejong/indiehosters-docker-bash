@@ -11,3 +11,5 @@ RUN cd /init && curl -O http://assets.withknown.com/releases/known-0.6.5.tgz
 
 COPY init/known.sh /init/known.sh
 COPY init/config.ini /init/config.ini
+
+CMD sh /init/known.sh

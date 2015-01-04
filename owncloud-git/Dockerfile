@@ -12,3 +12,5 @@ RUN cd /init && curl -O https://download.owncloud.org/community/owncloud-7.0.2.t
 
 COPY init/owncloud.sh /init/owncloud.sh
 COPY init/config.php /init/config.php
+
+CMD sh /init/owncloud.sh

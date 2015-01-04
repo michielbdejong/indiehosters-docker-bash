@@ -1,5 +1,12 @@
 #!/bin/bash
 
+echo Starting server...
+sh /run.sh &
+sleep 10
+
+echo Generic lamp-git initialization...
+sh /init/generic.sh
+
 VERSION="0.6.5"
 
 echo "Extracting Known ${VERSION}..."
