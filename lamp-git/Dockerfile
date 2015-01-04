@@ -14,6 +14,10 @@ RUN apt-get update \
 		php-pear \
 		php5-curl \
 		php5-gd \
+		php5-imagick \
+		php5-intl \
+		php5-json \
+		php5-mcrypt \
 		php5-mysql \
 		php5-xmlrpc \
 	&& rm -rf /var/lib/apt/lists/*
