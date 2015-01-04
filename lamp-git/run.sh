@@ -1,13 +1,12 @@
 #!/bin/bash
 
 exec mysqld_safe &
-for (( i=0; i<10; i++ ))
-do
-    DB_CONNECTABLE=$(mysql -e 'status' >/dev/null 2>&1; echo "$?")
-    if [[ DB_CONNECTABLE -eq 0 ]]; then
-        break
+for i in `seq 1 10`; do
+    DB_CONNECTABLE=$(mysql -e 'status' >/dev/null 2>&1; echo "$?");
+    echo "Waiting for database server... $DB_CONNECTABLE";
+    if [ $DB_CONNECTABLE -eq 0 ]; then
+        break;
     fi
-    echo "Waiting for database server..."
     sleep 1
 done
 
