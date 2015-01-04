@@ -1,11 +1,11 @@
 #!/bin/bash
 
+echo Generic lamp-git initialization...
+sh /init/generic.sh
+
 echo Starting server...
 sh /run.sh &
 sleep 10
-
-echo Generic lamp-git initialization...
-sh /init/generic.sh
 
 VERSION="0.6.5"
 

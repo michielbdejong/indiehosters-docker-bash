@@ -3,13 +3,12 @@ if  [ $# -lt 4 ]; then
   exit 1
 fi
 
-echo Starting server...
-sh /run.sh &
-sleep 10
-
 echo Generic lamp-git initialization...
 sh /init/generic.sh
 
+echo Starting server...
+sh /run.sh &
+sleep 10
 
 echo Unpacking latest WordPress into /data/www-content...
 php /root/wp-cli.phar --path="/data/www-content" --allow-root core download

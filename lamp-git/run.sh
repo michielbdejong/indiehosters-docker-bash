@@ -15,6 +15,8 @@ source /etc/apache2/envvars
 exec apache2 &
 
 cd /data
+git config --local user.email "backup@indiehosters"
+git config --local user.name "IndieHosters backup"
 
 while true; do
   mysqldump --all-databases > dump.sql
