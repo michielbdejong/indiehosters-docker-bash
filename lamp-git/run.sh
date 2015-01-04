@@ -1,7 +1,7 @@
 #!/bin/bash
 
 exec mysqld_safe &
-for ((i=0;i<10;i++))
+for (( i=0; i<10; i++ ))
 do
     DB_CONNECTABLE=$(mysql -e 'status' >/dev/null 2>&1; echo "$?")
     if [[ DB_CONNECTABLE -eq 0 ]]; then
