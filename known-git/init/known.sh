@@ -18,6 +18,8 @@ cp /init/config.ini .
 
 echo "Creating empty database..."
 echo "CREATE DATABASE IF NOT EXISTS known" | mysql
+mysql < /data/www-content/schemas/mysql/mysql.sql
+mv /data/www-content/htaccess.dist /data/www-content/.htaccess
 
 PWD=`pwgen 40 1`
 echo "user: " > /data/login.txt
