@@ -19,7 +19,7 @@ cp /init/config.ini .
 echo "Creating empty database..."
 echo "CREATE DATABASE IF NOT EXISTS known" | mysql
 mysql known < /data/www-content/schemas/mysql/mysql.sql
-msqldump --all-databases > /data/dump.sql
+mysqldump --all-databases > /data/dump.sql
 
 mv /data/www-content/htaccess.dist /data/www-content/.htaccess
 
