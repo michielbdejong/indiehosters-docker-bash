@@ -13,6 +13,7 @@ done
 mysql < /data/dump.sql
 source /etc/apache2/envvars
 exec apache2 &
+/etc/init.d/postfix start
 
 cd /data
 git config --local user.email "backup@indiehosters"

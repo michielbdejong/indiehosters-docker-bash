@@ -3,6 +3,9 @@ FROM debian:jessie
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update \
+	&& echo "postfix postfix/main_mailer_type string 'Internet site'" | debconf-set-selections \
+	&& echo "postfix postfix/mailname string 'HOSTNAME.EXAMPLE.COM'" | debconf-set-selections \
+	&& echo "postfix postfix/root_address string 'ROOTMAIL@EXAMPLE.COM'" | debconf-set-selections \
 	&& apt-get -yq install \
 		apache2 \
 		curl \
@@ -20,6 +23,7 @@ RUN apt-get update \
 		php5-mcrypt \
 		php5-mysql \
 		php5-xmlrpc \
+		postfix \
 	&& rm -rf /var/lib/apt/lists/*
 
 # Add image configuration and scripts
