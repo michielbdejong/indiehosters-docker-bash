@@ -11,6 +11,8 @@ for i in `seq 1 10`; do
 done
 
 mysql < /data/dump.sql
+echo FLUSH PRIVILEGES | mysql
+
 source /etc/apache2/envvars
 exec apache2 &
 /etc/init.d/postfix start

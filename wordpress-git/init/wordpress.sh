@@ -68,7 +68,7 @@ php /root/wp-cli.phar --path="/data/www-content" --allow-root theme activate wps
 
 echo Making  WordPress content folder writable for the webserver...
 chown -R root:www-data /data/www-content
-chmod 770 /data/www-content/wp-content
+chmod -R 770 /data/www-content/wp-content
 
 echo "user: $3" > /data/login.txt
 echo "pass: $PWD" >> /data/login.txt
