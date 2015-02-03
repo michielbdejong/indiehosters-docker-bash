@@ -7,7 +7,7 @@ RUN apt-get update \
 		pwgen \
 	&& rm -rf /var/lib/apt/lists/*
 
-RUN cd /init && curl -O http://assets.withknown.com/releases/known-0.6.5.tgz
+RUN cd /init && curl -O https://codeload.github.com/idno/Known/tar.gz/v0.7 && mv v0.7 known.tgz
 
 COPY init/known.sh /init/known.sh
 COPY init/config.ini /init/config.ini

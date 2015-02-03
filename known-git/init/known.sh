@@ -7,11 +7,12 @@ echo Starting server...
 sh /run.sh &
 sleep 10
 
-VERSION="0.6.5"
-
-echo "Extracting Known ${VERSION}..."
+echo "Extracting Known..."
 cd /data/www-content
-tar xzf /init/known-$VERSION.tgz
+tar xzf /init/known.tgz
+mv Known-0.7/* .
+mv Known-0.7/.* .
+rmdir Known-0.7
 
 echo "Setting default config..."
 cp /init/config.ini .
