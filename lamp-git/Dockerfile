@@ -18,6 +18,7 @@ RUN apt-get update \
 		php-apc \
 		php-pear \
 		php5-curl \
+		php5-dev \
 		php5-gd \
 		php5-imagick \
 		php5-intl \
@@ -32,6 +33,7 @@ RUN apt-get update \
 COPY apache.conf /etc/apache2/sites-enabled/000-default.conf
 COPY init /init
 COPY run.sh /run.sh
+
 RUN a2enmod rewrite \
 	&& a2enmod deflate \
 	&& a2enmod expires \
@@ -40,11 +42,12 @@ RUN a2enmod rewrite \
 	&& mkdir -p /etc/php5/apache2/conf.d/ \
 	&& echo "extension=oauth.so" >> /etc/php5/apache2/conf.d/oauth.ini \
 	&& sed \
-		-i "s/variables_order.*/variables_order = \"EGPCS\"/g" \
-		-i "s/file_uploads.*/file_uploads = On/g" \
-		-i "s/upload_max_filesize.*/upload_max_filesize = 16M/g" \
-		-i "s/post_max_size.*/post_max_size = 16M/g" \
-		/etc/php5/apache2/php.ini \
+		-e "s/variables_order.*/variables_order = \"EGPCS\"/g" \
+		-e "s/file_uploads.*/file_uploads = On/g" \
+		-e "s/upload_max_filesize.*/upload_max_filesize = 16M/g" \
+		-e "s/post_max_size.*/post_max_size = 16M/g" \
+		/etc/php5/apache2/php.ini > php.ini.tmp \
+	&& mv php.ini.tmp /etc/php5/apache2/php.ini \
 	&& chmod 755 /run.sh
 
 CMD ["/run.sh"]

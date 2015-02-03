@@ -11,6 +11,9 @@ sleep 10
 echo "Extracting Trovebox..."
 cd /data/www-content
 tar xzf /init/trovebox.tgz
+mv frontend-4.0.0-rc6/src/html/* .
+mv frontend-4.0.0-rc6/src/html/.* .
+rm -rf frontend-4.0.0-rc6
 
 echo "Creating empty database..."
 echo "CREATE DATABASE IF NOT EXISTS trovebox" | mysql
