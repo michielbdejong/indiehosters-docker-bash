@@ -1,4 +1,4 @@
-FROM indiehosters/lamp-git
+FROM michielbdejong/lamp-git
 
 ENV DEBIAN_FRONTEND noninteractive
 

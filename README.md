@@ -76,23 +76,26 @@ The idea of this setup would be to eventually support the migration format in a 
 To add a domain, choose one of the applications in this repo. First, build them all. From the root of this repo:
 
 ````
-sudo docker build -t indiehosters/lamp-git lamp-git/
-sudo docker build -t indiehosters/wordpress-git wordpress-git/
-sudo docker build -t indiehosters/known-git known-git/
-sudo docker build -t indiehosters/owncloud-git owncloud-git/
+sudo docker build -t michielbdejong/lamp-git lamp-git/
+sudo docker build -t michielbdejong/wordpress-git wordpress-git/
+sudo docker build -t michielbdejong/known-git known-git/
+sudo docker build -t michielbdejong/owncloud-git owncloud-git/
+etc ...
 ````
 
 To initialize an ownCloud instance, go into e.g. /data/domains/example.com, and run:
 
 ````
-sudo docker run -d -v $(pwd):/data -p 80:80 indiehosters/owncloud-git
+sudo docker run -d -v $(pwd):/data -p 80:80 michielbdejong/owncloud-git
 ````
 
-Follow the logs of this container, it will prompt you to visit http://localhost/ with your browser. For WordPress or Known, you can
-do the same, but with indiehosters/wordpress-git and indiehosters/known-git as the Docker image.
+Follow the logs of this container, it will prompt you to visit http://localhost/ with your browser. For the other apps you can
+do the same, but with michielbdejong/<app>-git as the Docker image.
 
 Once the first backup has run, you don't need this specific image anymore, but can run your instance with the generic lamp-git image:
 
 ````
-sudo docker run -it -v $(pwd):/data -p 80:80 indiehosters/lamp-git
+sudo docker run -it -v $(pwd):/data -p 80:80 michielbdejong/lamp-git
 ````
+
+For trovebox, run the trovebox-git image in production, and make sure /data/hostname is a text file containing the desired hostname.
