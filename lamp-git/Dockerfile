@@ -9,16 +9,13 @@ RUN apt-get update \
 	&& apt-get -yq install \
 		apache2 \
 		curl \
-		exiftran \
 		git \
 		libapache2-mod-php5 \
-		libpcre3-dev \
 		mysql-client \
 		mysql-server-5.5 \
 		php-apc \
 		php-pear \
 		php5-curl \
-		php5-dev \
 		php5-gd \
 		php5-imagick \
 		php5-intl \
@@ -33,21 +30,8 @@ RUN apt-get update \
 COPY apache.conf /etc/apache2/sites-enabled/000-default.conf
 COPY init /init
 COPY run.sh /run.sh
-
-RUN a2enmod rewrite \
-	&& a2enmod deflate \
-	&& a2enmod expires \
-	&& a2enmod headers \
-	&& pecl install oauth \
-	&& mkdir -p /etc/php5/apache2/conf.d/ \
-	&& echo "extension=oauth.so" >> /etc/php5/apache2/conf.d/oauth.ini \
-	&& sed \
-		-e "s/variables_order.*/variables_order = \"EGPCS\"/g" \
-		-e "s/file_uploads.*/file_uploads = On/g" \
-		-e "s/upload_max_filesize.*/upload_max_filesize = 16M/g" \
-		-e "s/post_max_size.*/post_max_size = 16M/g" \
-		/etc/php5/apache2/php.ini > php.ini.tmp \
-	&& mv php.ini.tmp /etc/php5/apache2/php.ini \
+RUN sed -i "s/variables_order.*/variables_order = \"EGPCS\"/g" /etc/php5/apache2/php.ini \
+	&& a2enmod rewrite \
 	&& chmod 755 /run.sh
 
 CMD ["/run.sh"]
