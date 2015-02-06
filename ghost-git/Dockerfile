@@ -7,6 +7,9 @@ RUN apt-get update -yq \
 RUN mkdir /app && cd /app && unzip ../ghost-0.5.8.zip
 RUN cd /app && npm install --production
 
-EXPOSE 2368
+COPY config.js /app/config.js
+COPY run.sh /run.sh
 
-CMD cd /app && npm start
+EXPOSE 80
+
+CMD /run.sh
