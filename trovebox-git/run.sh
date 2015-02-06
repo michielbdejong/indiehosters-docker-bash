@@ -18,6 +18,10 @@ source /etc/apache2/envvars
 apachectl start
 /etc/init.d/postfix start
 
+if [ ! -L /var/www/openphoto/src/userdata ]; then
+  mv /var/www/openphoto/src/userdata /data;
+  ln -s /data/userdata /var/www/openphoto/src/userdata;
+fi
 
 cd /data
 git config --local user.email "backup@indiehosters"
