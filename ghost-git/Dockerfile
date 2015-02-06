@@ -9,6 +9,7 @@ RUN cd /app && npm install --production
 
 COPY config.js /app/config.js
 COPY run.sh /run.sh
+COPY backup.sh /backup.sh
 
 EXPOSE 80
 
