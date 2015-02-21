@@ -1,3 +1,6 @@
+# DEPRECATION WARNING: I now use [snickers](https://github.com/michielbdejong/snicker) instead of this.
+
+
 # Using just Docker and bash
 
 Here's how to run a postfix-forwarder, haproxy, and lamp-based web backend containers on an off-the-shelf Ubuntu server.
